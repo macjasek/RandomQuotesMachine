@@ -1,5 +1,27 @@
 ﻿@{
     Layout = null;
+
+    var quotesList = new List<string>();
+    var authorList = new List<string>();
+
+    quotesList.Add("do it from the heart or not at all.");
+    authorList.Add("Jeanette Winterson");
+    quotesList.Add("The key to change... is to let go of fear.");
+    authorList.Add("Rosanne Cash");
+    quotesList.Add("Each party should gain from the negotiation.");
+    authorList.Add("Dale Carnegie");
+    quotesList.Add("Most of the problems in life are because of two reasons, we act without thinking or we keep thinking without acting.");
+    authorList.Add("Zig Ziglar");
+
+    Random rnd = new Random();
+
+
+    int randomQuoteNumber = rnd.Next(0, quotesList.Count - 1);
+
+    string randomQuote = quotesList[randomQuoteNumber];
+    string randomAuthor = authorList[randomQuoteNumber];
+
+
 }
 
 <!DOCTYPE html>
@@ -12,13 +34,13 @@
 <body>
     <h1>Random Quote Machine</h1>
     <div class="quote-text">
-        do it from the heart or not at all.
+        @randomQuote
     </div>
     <div class="quote-author">
-        Jeanette Winterson
+        @randomAuthor
     </div>
     <div class="button-new-quote">
-        <button id="new-quote">New Quote</button>
+        <input type="button" value="New Quote" onClick="window.location.reload()">
     </div>
 </body>
 </html>
