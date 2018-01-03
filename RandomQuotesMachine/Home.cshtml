@@ -4,14 +4,16 @@
     var quotesList = new List<string>();
     var authorList = new List<string>();
 
-    quotesList.Add("do it from the heart or not at all.");
-    authorList.Add("Jeanette Winterson");
-    quotesList.Add("The key to change... is to let go of fear.");
-    authorList.Add("Rosanne Cash");
-    quotesList.Add("Each party should gain from the negotiation.");
-    authorList.Add("Dale Carnegie");
-    quotesList.Add("Most of the problems in life are because of two reasons, we act without thinking or we keep thinking without acting.");
-    authorList.Add("Zig Ziglar");
+    var quotesFile = Server.MapPath("~/quotes.txt");
+
+    using (var reader = new StreamReader(quotesFile))
+    {
+        while (!reader.EndOfStream)
+        {
+            quotesList.Add(reader.ReadLine());
+            authorList.Add(reader.ReadLine());
+        }
+    }
 
     Random rnd = new Random();
 
