@@ -1,27 +1,24 @@
-﻿@{
+﻿@using WebMatrix.Data
+@{
     Layout = null;
 
-    var quotesList = new List<string>();
-    var authorList = new List<string>();
 
-    var quotesFile = Server.MapPath("~/quotes.txt");
 
-    using (var reader = new StreamReader(quotesFile))
+
+    var db = Database.Open("SQLServerConnectionString");
+    var selectQueryString = "SELECT TOP 1 * FROM Quotes ORDER BY NEWID()";
+
+
+
+
+    string randomQuote = "";
+    string randomAuthor = "";
+
+    foreach (var row in db.Query(selectQueryString))
     {
-        while (!reader.EndOfStream)
-        {
-            quotesList.Add(reader.ReadLine());
-            authorList.Add(reader.ReadLine());
-        }
+        randomQuote = row.qoute;
+        randomAuthor = row.author;
     }
-
-    Random rnd = new Random();
-
-
-    int randomQuoteNumber = rnd.Next(0, quotesList.Count - 1);
-
-    string randomQuote = quotesList[randomQuoteNumber];
-    string randomAuthor = authorList[randomQuoteNumber];
 
 
 }
