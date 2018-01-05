@@ -13,11 +13,16 @@
 
     string randomQuote = "";
     string randomAuthor = "";
+    int randomQuoteId;
+
 
     foreach (var row in db.Query(selectQueryString))
     {
+        
+        randomQuoteId = (int)row.Id;
         randomQuote = row.qoute;
         randomAuthor = row.author;
+
     }
 
 
@@ -27,19 +32,23 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
     <title>Random Quote Machine</title>
+    <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Random Quote Machine</h1>
-    <div class="quote-text">
-        @randomQuote
-    </div>
-    <div class="quote-author">
-        @randomAuthor
-    </div>
-    <div class="button-new-quote">
-        <input type="button" value="New Quote" onClick="window.location.reload()">
-    </div>
+    
+    <section id="quote-panel">
+        <h2>
+            @randomQuote
+        </h2>
+        <p>
+            @randomAuthor
+        </p>
+
+        <a href="#" class="special-button" onClick="window.location.reload()">New Quote</a>
+
+    </section>
+
 </body>
 </html>

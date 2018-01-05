@@ -1,0 +1,54 @@
+﻿@import url("//fonts.googleapis.com/css?family=Raleway:300,700");
+
+body {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    letter-spacing: 0.09em;
+    line-height: 1.65em;
+    background-color: #00cdcf;
+}
+
+h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+#quote-panel {
+    
+    color: #ffffff;
+    padding: 8em 0 6em 0;
+    text-align: center;
+}
+
+#quote-panel h2 {
+    border-style: double solid;
+    border-width: 4px 1px;
+    font-size: 2.4em;
+    line-height: 1.35em;
+    margin: 0 auto 1em;
+    padding: 1.1em;
+    position: relative;
+    width: 40%;
+}
+
+#quote-panel p {
+    font-size: 1.5em;
+}
+
+.special-button {
+    background-color: #009a9c;
+    color: #fff !important;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 2.85em;
+    line-height: 2.95em;
+    padding: 0 1.5em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
