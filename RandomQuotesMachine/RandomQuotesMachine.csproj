@@ -92,6 +92,7 @@
     <Content Include="css\site.css" />
     <Content Include="packages.config" />
     <Content Include="Home.cshtml" />
+    <Content Include="AddQuotes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

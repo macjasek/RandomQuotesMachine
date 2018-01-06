@@ -1,0 +1,55 @@
+﻿@using WebMatrix.Data
+@{
+    Layout = null;
+
+    Validation.RequireField("Quote", "Quote text is required");
+    Validation.RequireField("Author", "Author name is required");
+
+    var db = Database.Open("SQLServerConnectionString");
+
+    var Quote = Request.Form["Quote"];
+    var Author = Request.Form["Author"];
+
+    if (IsPost && Validation.IsValid())
+    {
+        if (ModelState.IsValid)
+        {
+            var insertQuery = "INSERT INTO Quotes (qoute, author) " + 
+                "VALUES (@0, @1)";
+            db.Execute(insertQuery, Quote, Author);
+            Response.Redirect("~/Home");
+        }
+
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
+    <title>Random Quote Machine</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Add New Quote</h2>
+    @Html.ValidationSummary("Errors with your submition:")
+    <form action="" method="post">
+        <fieldset>
+            <legend>Add Quote</legend>
+            <div>
+                <label>Quote:</label>
+                <textarea name="Quote" rows="4" value="@Quote"></textarea>
+            </div>
+            <div>
+                <label>Author:</label>
+                <input type="text" name="Author" size="50" value="@Author" />
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Insert" class="submit" />
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
