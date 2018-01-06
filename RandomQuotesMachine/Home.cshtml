@@ -6,24 +6,30 @@
 
 
     var db = Database.Open("SQLServerConnectionString");
-    var selectQueryString = "SELECT TOP 1 * FROM Quotes ORDER BY NEWID()";
+    var selectQueryString = "SELECT TOP 1 * FROM Quotes WHERE isSelected = 0 ORDER BY NEWID()";
 
 
 
 
     string randomQuote = "";
     string randomAuthor = "";
-    int randomQuoteId;
+    int randomQuoteId = 0;
 
 
     foreach (var row in db.Query(selectQueryString))
     {
-        
+
         randomQuoteId = (int)row.Id;
         randomQuote = row.qoute;
         randomAuthor = row.author;
 
     }
+
+    var resetStatusQueryString = "UPDATE Quotes SET isSelected = 0 WHERE isSelected = 1";
+    db.Execute(resetStatusQueryString);
+
+    var setQuoteStatusQueryString = "UPDATE Quotes SET isSelected = 1 WHERE Id = @0";
+    db.Execute(setQuoteStatusQueryString, randomQuoteId);
 
 
 }
