@@ -42,8 +42,10 @@
     <title>Random Quote Machine</title>
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
-<body>
-    
+<body onload="document.body.style.opacity='1'">
+    <div class="link">
+        <a href="~/AddQuotes.cshtml">Add New Quote</a>
+    </div>
     <section id="quote-panel">
         <h2>
             @randomQuote
@@ -52,7 +54,7 @@
             @randomAuthor
         </p>
 
-        <a href="#" class="special-button" onClick="window.location.reload()">New Quote</a>
+        <a href="#" class="special-button" onClick="window.location.reload()">Random Quote</a>
 
     </section>
 

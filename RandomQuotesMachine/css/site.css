@@ -7,6 +7,9 @@ body {
     letter-spacing: 0.09em;
     line-height: 1.65em;
     background-color: #00cdcf;
+    opacity: 0;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s; /* Safari */
 }
 
 h2 {
@@ -51,4 +54,46 @@ h2 {
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+}
+
+.add-quote-page {
+    width: 35em;
+    margin: 0 auto;
+    color: #fff;
+}
+
+    .add-quote-page header {
+        text-align: center;
+        color: #fff;
+    }
+
+    .add-quote-page p{
+        color: #fff;
+    }
+
+header h2 {
+    border-bottom-style: double;
+    border-bottom-width: 4px;
+    display: inline-block;
+    padding-bottom: 0.4em;
+}
+
+textarea, input {
+    width: 100%;
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    letter-spacing: 0.09em;
+    line-height: 1.65em;
+    padding: 0.75em 1em;
+    box-sizing: border-box;
+}
+
+label{
+    display:block;
+}
+
+.link{
+    text-align:right;
+    color: #fff;
 }
