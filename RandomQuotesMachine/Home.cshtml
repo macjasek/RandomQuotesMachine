@@ -1,4 +1,5 @@
 ﻿@using WebMatrix.Data
+@using RandomQuotesMachine
 @{
     Layout = null;
 
@@ -30,6 +31,10 @@
 
     var setQuoteStatusQueryString = "UPDATE Quotes SET isSelected = 1 WHERE Id = @0";
     db.Execute(setQuoteStatusQueryString, randomQuoteId);
+
+
+
+    QuoteImage.DrawQuote(randomQuote, "Arial", 16);
 
 
 }
