@@ -1,10 +1,11 @@
 ﻿using System.Drawing;
+using System.Web;
 
 namespace RandomQuotesMachine
 {
     public class QuoteImage
     {
-        public static Image DrawQuote(string text, string author, string fontName, int fontSize)
+        public static Image DrawQuote(string text, string author, string fontName, int fontSize, int randomQuoteId)
         {
 
             fontSize = CalculateMaxTextSize(text, fontName);
@@ -45,7 +46,9 @@ namespace RandomQuotesMachine
             textBrush.Dispose();
             drawing.Dispose();
 
-            img.Save("D:\\test.png",System.Drawing.Imaging.ImageFormat.Png);
+            string path = HttpContext.Current.Server.MapPath("~");
+
+            img.Save(path + "img//"+ randomQuoteId +".png",System.Drawing.Imaging.ImageFormat.Png);
 
             return img;
         }

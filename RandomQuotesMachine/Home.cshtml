@@ -34,7 +34,11 @@
 
 
 
-    QuoteImage.DrawQuote(randomQuote,randomAuthor, "Arial", 8);
+    QuoteImage.DrawQuote(randomQuote,randomAuthor, "Arial", 8, randomQuoteId);
+
+    var baseurl = "localhost";
+
+    var imgurl = $"{baseurl}//img//{randomQuoteId}.png";
 
 
 }
@@ -42,8 +46,13 @@
 <!DOCTYPE html>
 
 <html>
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
     <meta name="viewport" content="width=device-width" initial-scale="1" />
+    <meta property="og:url" content="@baseurl/@randomQuoteId" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="@randomAuthor" />
+    <meta property="og:description" content="@randomQuote" />
+    <meta property="og:image" content="@imgurl" />
     <title>Random Quote Machine</title>
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
